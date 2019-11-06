@@ -238,22 +238,12 @@ spec:
             - name: DOCS_QUEUE_DLQ_NAME	
               value:	
                 '{{.KUBE_NAMESPACE}}-document-sqs-dlq'	
-            - name: DOCS_AWS_SQS_ACCESS_KEY	
-              valueFrom:	
-                secretKeyRef:	
-                  name: '{{.KUBE_NAMESPACE}}-document-sqs'	
-                  key: access_key_id	
-            - name: DOCS_AWS_SQS_SECRET_KEY	
-              valueFrom:	
-                secretKeyRef:	
-                  name: '{{.KUBE_NAMESPACE}}-document-sqs'	
-                  key: secret_access_key
             - name: DOCS_TRUSTEDS3BUCKETNAME
               value:
-                '{{.KUBE_NAMESPACE}}-trusted-s3'
+                'cs-{{.ENVIRONMENT}}-trusted-s3'
             - name: DOCS_UNTRUSTEDS3BUCKETNAME
               value:
-                '{{.KUBE_NAMESPACE}}-untrusted-s3'
+                'cs-{{.ENVIRONMENT}}-untrusted-s3'
             - name: DOCS_AWS_SQS_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
@@ -267,27 +257,27 @@ spec:
             - name: TRUSTED_AWS_S3_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{.KUBE_NAMESPACE}}-trusted-s3
+                  name: cs-{{.ENVIRONMENT}}-trusted-s3
                   key: access_key_id
             - name: TRUSTED_AWS_S3_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{.KUBE_NAMESPACE}}-trusted-s3
+                  name: cs-{{.ENVIRONMENT}}-trusted-s3
                   key: secret_access_key
             - name: DOCS_TRUSTEDS3BUCKETKMSKEYID
               valueFrom:
                 secretKeyRef:
-                  name: {{.KUBE_NAMESPACE}}-trusted-s3
+                  name: cs-{{.ENVIRONMENT}}-trusted-s3
                   key: kms_key_id
             - name: UNTRUSTED_AWS_S3_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{.KUBE_NAMESPACE}}-untrusted-s3
+                  name: cs-{{.ENVIRONMENT}}-untrusted-s3
                   key: access_key_id
             - name: UNTRUSTED_AWS_S3_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{.KUBE_NAMESPACE}}-untrusted-s3
+                  name: cs-{{.ENVIRONMENT}}-untrusted-s3
                   key: secret_access_key
             - name: AUDIT_TOPIC_NAME
               value: {{.KUBE_NAMESPACE}}-sns
