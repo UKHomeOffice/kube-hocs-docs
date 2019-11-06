@@ -15,7 +15,7 @@ else
     if [[ ${ENVIRONMENT} == "qa" ]] ; then
         echo "deploying ${VERSION} to test namespace, using HOCS_DOCS_QA drone secret"
         export KUBE_TOKEN=${HOCS_DOCS_QA}
-        export REPLICAS="2"
+        export REPLICAS="1"
     elif [[ ${ENVIRONMENT} == "demo" ]] ; then
         echo "deploy ${VERSION} to demo namespace, using HOCS_DOCS_DEMO drone secret"
         export KUBE_TOKEN=${HOCS_DOCS_DEMO}
