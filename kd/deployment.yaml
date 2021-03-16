@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: hocs-docs
   labels:
-    version: {{.VERSION}}
+    version: {{.IMAGE_VERSION}}
 spec:
   replicas: {{.MIN_REPLICAS}}
   selector:
@@ -20,7 +20,7 @@ spec:
       labels:
         name: hocs-docs
         role: hocs-backend
-        version: {{.VERSION}}
+        version: {{.IMAGE_VERSION}}
     spec:
       imagePullSecrets:
         - name: registry-credentials
@@ -202,7 +202,7 @@ spec:
               containerPort: 10443
 
         - name: hocs-docs
-          image: quay.io/ukhomeofficedigital/hocs-docs:{{.VERSION}}
+          image: quay.io/ukhomeofficedigital/hocs-docs:{{.IMAGE_VERSION}}
           imagePullPolicy: Always
           securityContext:
             runAsNonRoot: true
