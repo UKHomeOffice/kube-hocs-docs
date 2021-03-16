@@ -18,11 +18,6 @@ else
     export MAX_REPLICAS="2"
 fi
 
-if [[ -z ${KUBE_TOKEN} ]] ; then
-    echo "Failed to find a value for KUBE_TOKEN - exiting"
-    exit -1
-fi
-
 cd kd
 
 kd --insecure-skip-tls-verify \
